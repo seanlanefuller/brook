@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "brook.h": "c",
+        "stdlib.h": "c"
+    }
+}

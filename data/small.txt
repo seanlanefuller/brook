@@ -1,0 +1,44 @@
+cat is an animal.
+dog is an animal.
+Cats can jump.
+Dogs can run.
+mat is on floor.
+rug is on floor.
+cat can sit on mat.
+dog can bark.
+cat can hide.
+dog can find cat.
+dog is brown.
+cat is gray.
+room has rug.
+hall is in house.
+cat can sleep.
+dog can watch.
+cat and dog can play.
+cat can run.
+dog can jump.
+cat can be inside.
+dog can be outside.
+cat can climb.
+dog can dig.
+cat sees dog.
+dog hears cat.
+cat eats food.
+dog drinks water.
+cat sits.
+dog stands.
+cat walks.
+dog lies.
+cat smells rug.
+dog finds bone.
+cat likes mat.
+dog likes hall.
+cat runs fast.
+dog sleeps now.
+cat is red.
+dog is purple.
+red is color.
+purple is color.
+cat is animal.
+dog is animal.
+
