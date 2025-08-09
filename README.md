@@ -20,10 +20,17 @@
  - Interactive training and generation interface
 
 Commands:
+
   train - train with default num epochs
+
   train N - train with N epochs
+
   save - save current model
+
   vocab - list all vocabulary words
+
   tokens - list some tokens
+
   quit - exit
+
   or type seed words for text generation
