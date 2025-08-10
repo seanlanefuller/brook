@@ -38,7 +38,7 @@ void generate_text_from_seed(const char* seed_string, int steps) {
         }
         last_token = next;
     }
-    if (words_in_sentence > 0 && last_token != get_token_id(".")) printf(".");
+    if (words_in_sentence > 0 && last_token != token_lookup_existing(".")) printf(".");
 }
 
 void interactive_mode() {

@@ -1,4 +1,5 @@
  BROOK - A Configurable Neural Language Model in C
+ originally created by Sean Lane Fuller
  
  Named for its flowing, natural way of connecting words and concepts,
  like a brook that connects different parts of the landscape with
