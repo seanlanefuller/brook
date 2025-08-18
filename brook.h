@@ -22,11 +22,11 @@
 #define DEBUG 0
 
 // Training parameters
-#define LEARNING_RATE 0.003f
-#define DECAY_RATE 0.996f     // Slower decay
+#define LEARNING_RATE 0.001f
+#define DECAY_RATE 0.996f
 #define EPOCHS 10
-#define TEMPERATURE 1.2f      // Increase from 1.0f to add diversity
-#define DROPOUT_RATE 0.0001f     // Remove dropout completely for now
+#define TEMPERATURE 1.01f      // Increase from 1.0f to add diversity
+#define DROPOUT_RATE 0.0001f
 #define POSITIONAL_DECAY_RATE 0.3f
 
 // Weight Access Macros

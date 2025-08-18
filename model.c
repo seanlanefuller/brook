@@ -107,6 +107,18 @@ void relu_and_dropout_combined(float* v, int size, float dropout_rate, int train
     }
 }
 
+void save_vocab() {
+    FILE* f = fopen("vocab.txt", "w");
+    if (!f) {
+        printf("Error: Could not save vocab.txt\n");
+        return;
+    }
+    for (int i = 0; i < vocab_size; i++) {
+        fprintf(f, "%s\n", vocab[i]);
+    }
+    fclose(f);
+}
+
 void save_model() {
     FILE* f = fopen("weights.bin", "wb");
     if (!f) {
@@ -126,12 +138,27 @@ void save_model() {
     int final_input_size = hidden_sizes[num_hidden_layers - 1];
     fwrite(W_output, sizeof(float), OUTPUT_SIZE * final_input_size, f);
     fclose(f);
-    f = fopen("vocab.txt", "w");
+    save_vocab();
+    printf("Model saved.\n");
+}
+
+void load_vocab() {
+    FILE* f = fopen("vocab.txt", "r");
     if (f) {
-        for (int i = 0; i < vocab_size; i++) fprintf(f, "%s\n", vocab[i]);
+        vocab_size = 0;
+        char line[MAX_VOCAB_WORD_LEN];
+        while (fgets(line, sizeof(line), f) && vocab_size < MAX_VOCAB) {
+            line[strcspn(line, "\r\n")] = 0;
+            if (strlen(line) > 0) {
+                size_t len = strlen(line);
+                if (len >= MAX_VOCAB_WORD_LEN) len = MAX_VOCAB_WORD_LEN - 1;
+                memcpy(vocab[vocab_size], line, len);
+                vocab[vocab_size][len] = '\0';
+                vocab_size++;
+            }
+        }
         fclose(f);
     }
-    printf("Model saved successfully\n");
 }
 
 int load_model() {
@@ -176,22 +203,9 @@ int load_model() {
         return 0;
     }
     fclose(f);
-    f = fopen("vocab.txt", "r");
-    if (f) {
-        vocab_size = 0;
-        char line[MAX_VOCAB_WORD_LEN];
-        while (fgets(line, sizeof(line), f) && vocab_size < MAX_VOCAB) {
-            line[strcspn(line, "\r\n")] = 0;
-            if (strlen(line) > 0) {
-                size_t len = strlen(line);
-                if (len >= MAX_VOCAB_WORD_LEN) len = MAX_VOCAB_WORD_LEN - 1;
-                memcpy(vocab[vocab_size], line, len);
-                vocab[vocab_size][len] = '\0';
-                vocab_size++;
-            }
-        }
-        fclose(f);
-    }
+
+    load_vocab();
+
     printf("Model loaded: %d layers, %d vocabulary\n", num_hidden_layers, vocab_size);
     return 1;
 }

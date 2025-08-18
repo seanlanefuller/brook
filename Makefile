@@ -1,7 +1,7 @@
 # Simple Makefile for brook project
 CC = gcc
 #CFLAGS = -O2 -Wall
-CFLAGS = -O3 -march=native -ffast-math -funroll-loops -fomit-frame-pointer -Wall
+CFLAGS = -O3 -march=native -ffast-math -funroll-loops -fomit-frame-pointer
 OBJDIR = bin
 
 OBJS = $(OBJDIR)/brook.o $(OBJDIR)/model.o $(OBJDIR)/interface.o \

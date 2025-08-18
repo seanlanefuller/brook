@@ -35,3 +35,10 @@ Commands:
   quit - exit
 
   or type seed words for text generation
+
+  Notes:
+
+The current model was trained on half.txt which is half a novel that I wrote
+and then it was tuned on story.txt which contains the entire novel.
+
+
